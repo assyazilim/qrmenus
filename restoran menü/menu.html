@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taso Cafe - Premium Lezzet Durağı</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .active-filter {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="font-[Poppins] bg-stone-50">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <div class="max-w-2xl mx-auto">
+                <h1 class="text-5xl font-bold text-amber-900 mb-4">
+                    <i class="fas fa-mug-hot mr-3"></i>Taso Cafe
+                </h1>
+                <p class="text-lg text-amber-800">Anadolu'nun Lezzetleri & Özenle Hazırlanmış İçecekler</p>
+                <div class="mt-4 flex justify-center space-x-2 text-amber-700">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Filter Buttons -->
+        <nav class="mb-12 flex flex-wrap justify-center gap-3">
+            <button onclick="filterMenu('all')" class="filter-btn px-6 py-2 bg-amber-100 text-amber-900 rounded-full transition-all hover:bg-amber-200 font-semibold flex items-center">
+                <i class="fas fa-list mr-2"></i>Tümü
+            </button>
+            <button onclick="filterMenu('kahvalti')" class="filter-btn px-6 py-2 bg-amber-100 text-amber-900 rounded-full transition-all hover:bg-amber-200 font-semibold flex items-center">
+                <i class="fas fa-egg mr-2"></i>Kahvaltı
+            </button>
+            <button onclick="filterMenu('steak')" class="filter-btn px-6 py-2 bg-amber-100 text-amber-900 rounded-full transition-all hover:bg-amber-200 font-semibold flex items-center">
+                <i class="fas fa-drumstick-bite mr-2"></i>Atıştırmalıklar
+            </button>
+            <button onclick="filterMenu('sicak-icecek')" class="filter-btn px-6 py-2 bg-amber-100 text-amber-900 rounded-full transition-all hover:bg-amber-200 font-semibold flex items-center">
+                <i class="fas fa-mug-hot mr-2"></i>Sıcak İçecekler
+            </button>
+            <button onclick="filterMenu('soguk-icecek')" class="filter-btn px-6 py-2 bg-amber-100 text-amber-900 rounded-full transition-all hover:bg-amber-200 font-semibold flex items-center">
+                <i class="fas fa-glass-whiskey mr-2"></i>Soğuk İçecekler
+            </button>
+            <button onclick="filterMenu('tatli')" class="filter-btn px-6 py-2 bg-amber-100 text-amber-900 rounded-full transition-all hover:bg-amber-200 font-semibold flex items-center">
+                <i class="fas fa-ice-cream mr-2"></i>Tatlılar
+            </button>
+        </nav>
+
+        <!-- Menu Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="menu">
+            <!-- Kahvaltı Öğeleri -->
+            <div class="menu-item kahvalti relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group overflow-hidden">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="serpme.jpg" alt="Serpme Kahvaltı" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-300">
+                    <span class="absolute top-3 right-3 bg-amber-500 text-white px-3 py-1 rounded-full text-sm">₺75-₺120</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-xl text-amber-900 mb-2">Serpme Kahvaltı</h3>
+                    <p class="text-gray-600 text-sm mb-4">Taze ürünlerle hazırlanan geleneksel kahvaltı tabağı</p>
+                    <span class="text-amber-900 font-bold">₺90</span>
+                </div>
+            </div>
+
+            <!-- Sıcak İçecekler -->
+            <div class="menu-item sicak-icecek relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group overflow-hidden">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="turkkahvesi.jpg" alt="Türk Kahvesi" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-300">
+                    <span class="absolute top-3 right-3 bg-amber-500 text-white px-3 py-1 rounded-full text-sm">Özel Demleme</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-xl text-amber-900 mb-2">Türk Kahvesi</h3>
+                    <p class="text-gray-600 text-sm mb-4">Geleneksel yöntemlerle hazırlanan özel kahve</p>
+                    <span class="text-amber-900 font-bold">₺25</span>
+                </div>
+            </div>
+
+            <!-- Soğuk İçecekler -->
+            <div class="menu-item soguk-icecek relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group overflow-hidden">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="nanelimonata.jpg" alt="Limonata" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-300">
+                    <span class="absolute top-3 right-3 bg-amber-500 text-white px-3 py-1 rounded-full text-sm">Soğuk</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-xl text-amber-900 mb-2">Nane Limonata</h3>
+                    <p class="text-gray-600 text-sm mb-4">Taze nane ile hazırlanan serinletici limonata</p>
+                    <span class="text-amber-900 font-bold">₺30</span>
+                </div>
+            </div>
+
+            <!-- Yeni Ürünler -->
+            <div class="menu-item soguk-icecek relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group overflow-hidden">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="sogukkahve.jpg" alt="Ice Coffee" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-300">
+                    <span class="absolute top-3 right-3 bg-amber-500 text-white px-3 py-1 rounded-full text-sm">Soğuk</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-xl text-amber-900 mb-2">Ice Coffee</h3>
+                    <p class="text-gray-600 text-sm mb-4">Taze kahve ile hazırlanan serinletici içecek</p>
+                    <span class="text-amber-900 font-bold">₺35</span>
+                </div>
+            </div>
+
+            <div class="menu-item soguk-icecek relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group overflow-hidden">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="milkshake.jpg" alt="Milkshake" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-300">
+                    <span class="absolute top-3 right-3 bg-amber-500 text-white px-3 py-1 rounded-full text-sm">Soğuk</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-xl text-amber-900 mb-2">Milkshake</h3>
+                    <p class="text-gray-600 text-sm mb-4">Lezzetli ve kremalı milkshake</p>
+                    <span class="text-amber-900 font-bold">₺45</span>
+                </div>
+            </div>
+
+            <div class="menu-item tatli relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group overflow-hidden">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="cheesecake.jpg" alt="Cheesecake" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-300">
+                    <span class="absolute top-3 right-3 bg-amber-500 text-white px-3 py-1 rounded-full text-sm">Tatlı</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-xl text-amber-900 mb-2">Cheesecake</h3>
+                    <p class="text-gray-600 text-sm mb-4">Zengin peynirli ve tatlısı</p>
+                    <span class="text-amber-900 font-bold">₺40</span>
+                </div>
+            </div>
+
+            <div class="menu-item tatli relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group overflow-hidden">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="brownie.jpg" alt="Brownie" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-300">
+                    <span class="absolute top-3 right-3 bg-amber-500 text-white px-3 py-1 rounded-full text-sm">Tatlı</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-xl text-amber-900 mb-2">Brownie</h3>
+                    <p class="text-gray-600 text-sm mb-4">Çikolatalı ve yoğun brownie</p>
+                    <span class="text-amber-900 font-bold">₺32</span>
+                </div>
+            </div>
+
+            <div class="menu-item kahvalti relative bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group overflow-hidden">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="menemen.jpg" alt="Menemen" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-300">
+                    <span class="absolute top-3 right-3 bg-amber-500 text-white px-3 py-1 rounded-full text-sm">₺35</span>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-xl text-amber-900 mb-2">Menemen</h3>
+                    <p class="text-gray-600 text-sm mb-4">Taze domates, biber ve yumurtadan yapılmış geleneksel bir Türk yemeği</p>
+                    <span class="text-amber-900 font-bold">₺35</span>
+                </div>
+            </div>
+
+
+            <!-- Devamını ekleyebilirsiniz... -->
+        </div>
+    </div>
+    <script>
+        function filterMenu(category) {
+            const items = document.querySelectorAll('.menu-item');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active-filter');
+            });
+            const activeButton = Array.from(buttons).find(button => button.onclick.toString().includes(category));
+            if (activeButton) {
+                activeButton.classList.add('active-filter');
+            }
+        }
+    </script>
+</body>
+</html>
